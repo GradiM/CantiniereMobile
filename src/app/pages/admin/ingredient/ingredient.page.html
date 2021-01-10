@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ingredients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="styleAdmin">Nos Ingredients</p>
+    <section class="blocAdmin">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th style="text-align: center;">Ingredients</th>
+                </tr>
+            </thead>
+            <tbody>
+              <td>
+                <div *ngFor="let ingredient of ingredients">
+                    <p>{{ ingredient.label }}</p>
+                </div>           
+              </td>
+            </tbody> 
+        </table>
+
+    </section>
+
+</ion-content>

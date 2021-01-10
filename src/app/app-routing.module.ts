@@ -36,6 +36,11 @@ const routes: Routes = [
     path: 'orders',
     loadChildren: () => import('./pages/orders/orders.module').then( m => m.OrdersPageModule),
     canActivate: [AuthService]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./pages/admin/admin.module').then( m => m.AdminModule),
+    canActivate: [AuthService]
   }
 
 

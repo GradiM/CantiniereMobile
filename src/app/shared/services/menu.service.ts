@@ -59,4 +59,9 @@ export class MenuService {
         )
     );
   }
+  
+  listMenu(): Observable<Array<MenuOUT>> {
+    const url: string = `${API_URL}/menu/findall`;
+    return this.http.get<Array<MenuOUT>>(url)
+  }
 }

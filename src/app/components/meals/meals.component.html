@@ -10,8 +10,8 @@
     <div class="p-t-10">
       <p *ngFor="let ingredient of meal.ingredients">{{ ingredient.label }}</p>
     </div>
-    <span class="d-inline-block w-100 ion-text-right">
-      <ion-button size="small" color="success" (click)="orderMaker(meal.id)">Ajouter au panier</ion-button>
+    <span *ngIf="authService.isUserAuthenticated()" class="d-inline-block w-100 ion-text-right">
+      <ion-button size="small" (click)="orderMaker(meal.id)">Ajouter au panier</ion-button>
     </span>
   </ion-card-content>
 </ion-card>

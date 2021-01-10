@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des Utilisateurs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="users">   
+    <p class="styleAdmin">Nos Utilisateurs</p>
+      <table class="table table-striped" style="width: 100%;">
+        <thead>
+            <tr class="barreMenu">
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Caisse</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td><a [routerLink]="['/admin/user-admin', user.id]" style="display: block;padding-left: 10px;color:white;">{{user.name}}</a></td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.wallet}}</td>
+          </tr>
+        </tbody> 
+      </table>
+    </div>  
+</ion-content>
+

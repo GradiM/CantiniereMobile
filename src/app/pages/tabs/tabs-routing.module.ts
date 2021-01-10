@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('../authentication/choice-connect/choice-connect.module').then( m => m.ChoiceConnectPageModule)
       },
       {
+        path: 'admin/meals',
+        loadChildren: () => import('../admin/meals/meals.module').then( m => m.MealsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'

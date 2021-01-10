@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des menus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+<ion-content>
+    <div style="padding: 10px 0 20px 0;">
+      <a routerLink="/admin/ingredient"style="padding-right:5px;">
+          <span style="color: rgb(31, 90, 57);">Liste des Ingredients 👉</span>
+      </a>
+      <a routerLink="/admin/user">
+          <span style="color: rgb(31, 90, 57);">Liste des Utilisateurs 👉</span>
+      </a>
+    </div>
+    <div *ngIf="menus">   
+        <ion-button expand="full" class="btn btn-link styleAdmin" routerLink="/admin/meals"><strong>Nos Plats  👩‍🍳 </strong></ion-button>
+        <ion-button expand="full" class="btn btn-link" routerLink="/admin/newmenu"><strong> Nouveau Menu </strong></ion-button>
+        <table class="table table-striped">
+          <thead>
+              <tr class="barreMenu">
+                <th>Menus 🍱</th>
+                <th>Prix</th>
+                <th>Images</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let menu of menus">
+            <td><a [routerLink]="['/admin/manage-menu', menu.id]" style="display: block;font-weight: 100;padding-left: 10px;">{{menu.label}}</a>
+                <ul>
+                    <li>
+                      <div *ngFor="let meal of menu.meals">
+                        <small style="color: red">{{ meal.label }}</small>
+                      </div> 
+                    </li>
+                </ul>
+            </td>
+            <td style="padding-right: 5px;">{{menu.priceDF}}</td>
+            <td>
+                <div class="ser-icon">
+                    <img
+                    [src]="menu.imgUrl" alt="photo des plats"
+                      class="img-fluid"
+                      alt=""
+                    />
+                </div>
+                
+            </td>
+            </tr>
+          </tbody> 
+      </table>
+  </div>  
+
+</ion-content>

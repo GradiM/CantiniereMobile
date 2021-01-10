@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid *ngIf="authService.isUserAuthenticated()">
     <ion-row>
       <ion-col class="ion-text-right">
         <ion-button size="large"
@@ -21,8 +21,8 @@
 
   <div *ngIf="menu">
     <ion-card *ngFor="let meal of menu.meals">
-      <!--"../../../assets/uploads/menu-img-02.jpg"-->
-      <img [src]="meal.imgUrl" alt="Image du plat">
+      <!-- <img src="../../../assets/uploads/menu-img-02.jpg" alt="Image du plat"> -->
+      <img [src]="meal.imgUrl" alt="Image du plat" width="380" height="335">
       <ion-card-header>
         <ion-card-subtitle>Plat</ion-card-subtitle>
         <ion-card-title>{{ meal.label }}</ion-card-title>

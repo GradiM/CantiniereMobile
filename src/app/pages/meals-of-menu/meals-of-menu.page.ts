@@ -28,7 +28,7 @@ export class MealsOfMenuPage implements OnInit {
     private menuService: MenuService,
     private route: ActivatedRoute,
     private orderService: OrderService,
-    private authService: AuthService,
+    public authService: AuthService,
     public alertController: AlertController) { }
 
   ngOnInit(): void {

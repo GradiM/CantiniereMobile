@@ -26,7 +26,7 @@ export class MealsComponent implements OnInit {
   constructor(
     private mealService: MealService,
     private orderService: OrderService,
-    private authService: AuthService,
+    public authService: AuthService,
     public alertController: AlertController) {}
 
   ngOnInit(): void {

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nouveau plat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [hidden]="submitted">
+    <h1 class="text-center">Créer un nouveau plat</h1>
+    <form [formGroup]="newmeal" (ngSubmit)="onSubmit()">
+      <ion-item lines="full">
+        <ion-input type="text" placeholder="Nom du plat" class="form-control" formControlName="label" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-input type="number" placeholder="Prix" class="form-control" formControlName="priceDF" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-input type="text" placeholder="Description" class="form-control" formControlName="description" required></ion-input>
+      </ion-item>
+      <div formArrayName="availableForWeeks" style="padding-left: 20px;">
+        <h3>Disponible Pendant la semaine</h3>
+        <div class="form-group" *ngFor="let idControl of getAvailableForWeeks().controls; let i = index">
+          <ion-input type="number"  placeholder="Entrer un nombre" class="form-control" [formControlName]="i"></ion-input>
+        </div>
+        <ion-button type="button" class="bouton" (click)="onAddAvailableForWeeks()">Ajouter</ion-button>
+      </div><br> 
+      <div formArrayName="ingredientsId" style="padding-left: 20px;">
+        <h3>Nos Id ingrédients</h3>
+        <div class="form-group" *ngFor="let idControl of getIngredientsId().controls; let i = index">
+          <ion-input type="number" placeholder="Entrer un nombre" class="form-control" [formControlName]="i"></ion-input>
+        </div>
+        <ion-button type="button" class="bouton" (click)="onAddIngredientsId()">Ajouter un id d'ingrédient</ion-button>
+      </div>   
+
+      <ion-row>
+        <ion-col size="6" offset="4">
+          <ion-button type="submit"  [disabled]="!newmeal.valid">Envoyez</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+</ion-content>

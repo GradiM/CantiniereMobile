@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modifier le plat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngIf="meal">
+    <h1 class="text-center">Modifier le plat<span style="color: #8dbd56; padding-left: 5px;">{{meal.label}}</span></h1>
+    <form>
+      <ion-item lines="full">
+          <ion-input name="label" class="form-control" [(ngModel)]="meal.label"></ion-input>
+      </ion-item>
+      <ion-item lines="full">        
+        <ion-input  class="form-control" name="priceDF" [(ngModel)]="meal.priceDF"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-input class="form-control" name="description" [(ngModel)]="meal.description"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col size="4" offset="4">
+          <ion-button type="submit"  (click)="onClick()">Envoyez</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>
